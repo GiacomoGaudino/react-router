@@ -4,6 +4,7 @@ import AboutPage from "./pages/AboutPage";
 import ProductsPage from "./pages/ProductsPage";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import DefaultLayout from "./Layouts/DefaultLayout";
 
 function App() {
 
@@ -28,9 +29,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/products" element={<ProductsPage products={products} />} />
+        <Route element={<DefaultLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/products" element={<ProductsPage products={products} />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
