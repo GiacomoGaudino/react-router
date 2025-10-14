@@ -1,0 +1,10 @@
+@import url('bootstrap');
+@import url('bootstrap-icons');
+
+body {
+    background-color: #fffdfd;
+}
+
+footer {
+    background-color: #fff8f9;
+}
