@@ -5,6 +5,14 @@ body {
     background-color: #fffdfd;
 }
 
+main {
+    min-height: 500px;
+}
+
+#jumbotron {
+    background-color: #eec9cf;
+}
+
 footer {
     background-color: #fff8f9;
 }
