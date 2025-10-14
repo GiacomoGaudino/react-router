@@ -34,10 +34,10 @@ export default function AppHeader() {
                             <ul className="navbar-nav me-auto mt-2 mt-lg-0 ">
                                 {menu.map(item =>
                                     <li className="nav-item mx-4 " key={item.id}>
-                                        <Link className="nav-link active text-secondary" to={item.path} aria-current="page"
-                                        >{item.text}
-                                            <span className="visually-hidden">(current)</span>
-                                        </Link>
+                                        <NavLink to={item.path} className={({ isActive }) =>
+                                            isActive ? "nav-link active text-dark fw-bold" : "nav-link text-secondary"}>
+                                            {item.text}
+                                        </NavLink>
                                     </li>
                                 )}
                             </ul>
