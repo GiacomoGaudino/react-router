@@ -36,12 +36,28 @@ export default function ProductPage() {
 
     }, [id, navigate])
 
+    function prevProduct() {
+        const currentId = Number(id)
+        if (currentId > 1) {
+            navigate(`/products/${currentId - 1}`)
+        }
+    }
+
+    function succProduct() {
+        const currentId = Number(id)
+        if (currentId < 20)
+            navigate(`/products/${currentId + 1}`)
+    }
 
     return (
         <>
             {product !== null ?
                 <div className="container">
                     <ProductCard product={product} />
+                    <div className="d-flex justify-content-between mt-2">
+                        <button className="btn btn-primary" onClick={prevProduct}>Prev</button>
+                        <button className="btn btn-primary" onClick={succProduct}>Succ</button>
+                    </div>
                 </div> :
                 <div className="vh-100 text-center">
                     <Tailspin
