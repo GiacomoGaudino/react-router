@@ -1,8 +1,7 @@
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import ProductCard from "../components/ProductCard"
-import { useNavigate } from "react-router-dom"
 import { Tailspin } from 'ldrs/react'
 
 export default function ProductPage() {
@@ -15,11 +14,15 @@ export default function ProductPage() {
     function fetchProducts() {
         axios
             .get(productsEndPoint)
-            .then(res =>
+            .then(res => {
+                if (!res.data.id) {
+                    navigate('/products/404')
+                }
                 setProduct(res.data)
+            }
             )
             .catch(error => {
-                console.error(error.message)
+                console.log(error.message)
                 navigate('/products')
             }
             )
@@ -29,6 +32,7 @@ export default function ProductPage() {
         setTimeout(() => {
             fetchProducts(productsEndPoint)
         }, 2000)
+
 
     }, [id, navigate])
 
