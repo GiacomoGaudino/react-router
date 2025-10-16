@@ -1,6 +1,9 @@
+
 import AppCardProducts from "../components/AppCardProducts";
 
+
 export default function ProductsPage({ products }) {
+
 
     return (
         <>
