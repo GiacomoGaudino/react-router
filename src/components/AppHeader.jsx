@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/imgs/logo.png"
 
 
@@ -26,7 +26,9 @@ export default function AppHeader() {
         <header>
             <div className="container d-flex justify-content-between align-items-center p-4">
                 <div className="logo">
-                    <img className="img-fluid logo-img" width='50px' src={logo} alt="logo" />
+                    <Link to='/'>
+                        <img className="img-fluid logo-img" width='50px' src={logo} alt="logo" />
+                    </Link>
                 </div>
                 <nav className="navbar navbar-expand-sm navbar-light">
                     <div className="container">
