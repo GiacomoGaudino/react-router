@@ -14,5 +14,42 @@ main {
 }
 
 footer {
-    background-color: #fff8f9;
+    background-color: #ffdde2ff;
+    min-height: 200px;
+
+    .link {
+        min-height: 150px;
+    }
+}
+
+.btn-succ {
+    background-color: #802c6e;
+    color: white;
+    border: 2px solid #802c6e;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-succ:hover {
+    background-color: #a03c8f;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.btn-prev {
+    background-color: white;
+    color: #802c6e;
+    border: 2px solid #802c6e;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s, transform 0.2s, color 0.2s;
+}
+
+.btn-prev:hover {
+    background-color: #802c6e;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.product {
+    min-height: 600px;
 }

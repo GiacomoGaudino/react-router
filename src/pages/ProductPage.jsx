@@ -16,7 +16,11 @@ export default function ProductPage() {
             .get(productsEndPoint)
             .then(res => {
                 if (!res.data.id) {
-                    navigate('/products/404')
+                    navigate('/404');
+                    setTimeout(() => {
+                        navigate('/products');
+                    }, 5000);
+                    return
                 }
                 setProduct(res.data)
             }
@@ -52,11 +56,11 @@ export default function ProductPage() {
     return (
         <>
             {product !== null ?
-                <div className="container">
+                <div className="container col-6 product">
                     <ProductCard product={product} />
-                    <div className="d-flex justify-content-between mt-2">
-                        <button className="btn btn-primary" onClick={prevProduct}>Prev</button>
-                        <button className="btn btn-primary" onClick={succProduct}>Succ</button>
+                    <div className="d-flex justify-content-center gap-2 my-2">
+                        <button className="btn btn-prev" onClick={prevProduct}>Prev</button>
+                        <button className="btn btn-succ" onClick={succProduct}>Succ</button>
                     </div>
                 </div> :
                 <div className="vh-100 text-center">
