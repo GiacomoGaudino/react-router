@@ -6,11 +6,16 @@ body {
 }
 
 main {
-    min-height: 500px;
+    min-height: 700px;
 }
 
 #jumbotron {
     background-color: #eec9cf;
+    height: 300px;
+
+    .w-50 {
+        margin-top: -3rem;
+    }
 }
 
 footer {
