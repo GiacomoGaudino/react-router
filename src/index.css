@@ -7,6 +7,10 @@ body {
 
 main {
     min-height: 700px;
+
+    .favorite {
+        padding-top: 250px;
+    }
 }
 
 #jumbotron {
