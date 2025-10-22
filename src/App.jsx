@@ -6,11 +6,14 @@ import DefaultLayout from "./Layouts/DefaultLayout";
 import ProductPage from "./pages/ProductPage";
 import Page404NotFound from "./pages/Page404NotFound";
 import ProductContext from "./contexts/ProductContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
 
-  const [favoriteProduct, setFavoriteProduct] = useState([])
+  const [favoriteProduct, setFavoriteProduct] = useState(() => {
+    const saved = localStorage.getItem("favorites");
+    return saved ? JSON.parse(saved) : [];
+  });
 
   function handleToogle(product) {
     console.log(product.id);
@@ -19,9 +22,13 @@ function App() {
         return prev.filter(id => id !== product.id)
       }
       return [...prev, product.id]
-    })
+    }
+    )
   }
 
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favoriteProduct));
+  }, [favoriteProduct]);
 
   return (
     <ProductContext.Provider value={{ handleToogle, favoriteProduct, }}>
